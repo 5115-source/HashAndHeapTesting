@@ -2,7 +2,7 @@
 def main():
     #Create a hash map, add some values to it, and print the initial state of the hash map
     hashMap = dict()
-    hashMap = {0:"bananna", 1:"tomato", 2:"apple", 3:"pear", 4:"orange", 5:"guava", 6:"mango", 7:"kiwi", 8:"pomegranate", 9:"pineapple"}
+    hashMap = {0:"banana", 1:"tomato", 2:"apple", 3:"pear", 4:"orange", 5:"guava", 6:"mango", 7:"kiwi", 8:"pomegranate", 9:"pineapple"}
     print("Initial HashMap Contents: ", hashMap)
 
     userInput(hashMap)

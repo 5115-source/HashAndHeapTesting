@@ -1,7 +1,7 @@
 #Python has a nice heapq class that allows for use of priority queues
 import heapq
 
-#I didn't think that any part of this main method was dedicated enough to justify separating it into separate methods
+#I didn't think that any part of this main method was long enough to justify separating it into separate methods, but I did separate functionality by line breaks
 def main():
     #Create an empty list to use as a heap and add values to the heap with varying priorities (the lower the number the higher the priority)
     minHeap = []
@@ -23,8 +23,11 @@ def main():
         i -= 1
         
     #User input without any error checking because this is just a sample program using a hash map
-    add = int(input("Enter a number to insert into the heap: "))
-    heapq.heappush(minHeap, add)
+    userInput = input("Enter numbers to insert into the heap (space-separated): ")
+    #Chat GPT was really useful in getting line 28 just right
+    addNumbers = list(map(int, userInput.split()))
+    for addNumber in addNumbers: 
+        heapq.heappush(minHeap, addNumber)
     print("\nHeap after insertions: ", minHeap)
     
 #If there is a main method, run it
