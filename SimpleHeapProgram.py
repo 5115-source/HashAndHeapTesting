@@ -1,28 +1,31 @@
 #Python has a nice heapq class that allows for use of priority queues
 import heapq
 
+#I didn't think that any part of this main method was dedicated enough to justify separating it into separate methods
 def main():
-    #Create a list to use as a heap
+    #Create an empty list to use as a heap and add values to the heap with varying priorities (the lower the number the higher the priority)
     minHeap = []
-    #Add values to the heap with varying priorities
-    minHeap = {0:"banana", 1:"tomato", 2:"apple", 3:"pear", 4:"orange", 5:"guava", 6:"mango", 7:"kiwi", 8:"pomegranate", 9:"pineapple"}
+    values = [2, 4, 6, 5, 7, 0, 9, 1, 3, 8]
+    for value in values:
+        heapq.heappush(minHeap, value)  
+    print("Heap elements (Min-Heap): ", minHeap, "\n")
     
-    heapq.heappush(minHeap, (0, "banana"))
+    #The element in the heap that is at the first index is the smallest value in the heap (min heap)
+    smallestElement = minHeap[0]
+    print("Smallest element in the heap: ", smallestElement, "\n")
     
-    print("Heap elements (Min-Heap): ", minHeap)
-
-    userInput(hashMap)
-    
-#Ask user for input to edit the hash map in different ways
-def userInput(hashMap):
+    #Remove five elements in priority order from the heap
+    print("Elements removed from the heap: ", end = "")
+    i = 5
+    while i != 0:
+        removedElement = heapq.heappop(minHeap)
+        print(removedElement, end = " ")
+        i -= 1
+        
     #User input without any error checking because this is just a sample program using a hash map
-    key = int(input("Enter the key (integer) to search for a fruit: "))
-    print("The fruit corresponding to the key", key, "is: ", hashMap[key] )
-    
-    #Remove a given key from the hash map and print the resulting hash map
-    removalKey = int(input("Enter the key to remove from the HashMap: "))
-    hashMap.pop(removalKey)
-    print("After removing key", removalKey, "the HashMap contents are: ", hashMap)
+    add = int(input("Enter a number to insert into the heap: "))
+    heapq.heappush(minHeap, add)
+    print("\nHeap after insertions: ", minHeap)
     
 #If there is a main method, run it
 if __name__ == "__main__":
